@@ -28,10 +28,19 @@ export class RestMachineryService {
         xhr.setRequestHeader('Authorization', 'Bearer ' + this.authToken);
         xhr.responseType = 'json';
 
-        xhr.onload, xhr.onerror = function (e: any) {
-            var res = JSON.parse(xhr.responseText);
-            callback(xhr.status, res);
+        xhr.onreadystatechange = function (e: any) {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                var res = JSON.parse(xhr.responseText);
+                callback(xhr.status, res);
+            }
         };
+
+        xhr.onerror = function (e: any) {
+            callback(xhr.status, {
+                'success': false,
+                'message': xhr.responseText
+            });
+        }
 
         body ? xhr.send(body.toString().replace(/\s/g, '')) : xhr.send();
         console.log(new Date(), type, 'REQUEST:', path);

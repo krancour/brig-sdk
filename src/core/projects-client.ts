@@ -17,7 +17,7 @@ export class ProjectsClient {
     }
 
     getProjects = () => {
-        this.rms.sendRequest('GET', 'v2/projects', (xhrStatus: any, xhrResponse: string) => {
+        this.rms.sendRequest('GET', '/v2/projects', (xhrStatus: any, xhrResponse: string) => {
             console.log(new Date(), 'RESPONSE:', xhrStatus);
             console.log(xhrResponse);
             this.projects = JSON.parse(xhrResponse);
