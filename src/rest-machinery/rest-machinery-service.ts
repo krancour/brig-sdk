@@ -3,12 +3,12 @@ export class RestMachineryService {
     private authToken: string;
     private response: Object;
 
-    constructor(authToken: string) {
-        this.baseUrl = 'https://brignext.byu.kashti.sh/';
+    constructor(baseUrl: string, authToken: string) {
         this.authToken = authToken;
+        this.baseUrl = baseUrl;
     }
 
-    sendRequest(type: string, path: string, callback: Function, queryParams?: Object, body?: Object, headers?: Object) {
+    sendRequest = (type: string, path: string, callback: Function, queryParams?: Object, body?: Object, headers?: Object) => {
 
         path ? path = this.baseUrl + path : path = this.baseUrl;
 
@@ -32,13 +32,21 @@ export class RestMachineryService {
         };
 
         body ? xhr.send(body.toString().replace(/\s/g, '')) : xhr.send();
-
+        console.log(new Date(), type, 'REQUEST:', path);
     }
 
-    formatParams(queryParams) {
+    formatParams = (queryParams: Object) => {
         return "?" + Object.keys(queryParams).map(function (key) {
             return key + '=' + encodeURIComponent(queryParams[key]);
         })
             .join('&');
+    }
+
+    isNode = () => {
+        return typeof "process" !== "undefined" && process && process.versions && process.versions.node;
+    }
+
+    setAuthToken = (authToken: string) => {
+        this.authToken = authToken;
     }
 }

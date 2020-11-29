@@ -13,12 +13,20 @@ export class CoreApiClient {
     private secretsClient: SecretsClient;
     private workersClient: WorkersClient;
     
-    constructor() {
-        this.projectsClient = new ProjectsClient('');
+    constructor(private baseUrl: string, private authToken: string) {
+        this.projectsClient = new ProjectsClient(baseUrl, authToken);
         this.eventsClient = new EventsClient();
         this.jobsClient = new JobsClient();
         this.logsClient = new LogsClient();
         this.secretsClient = new SecretsClient();
         this.workersClient = new WorkersClient();
+    }
+
+    setAuthToken = (newAuthToken: string) => {
+        this.projectsClient.setAuthToken(newAuthToken);
+    }
+
+    getProjects = () => {
+        this.projectsClient.getProjects();
     }
 }

@@ -1,16 +1,29 @@
+import { time } from "console";
 import { RestMachineryService } from "../rest-machinery/rest-machinery-service";
 
 export class ProjectsClient {
+    private baseUrl: string;
+    private authToken: string;
     private rms: RestMachineryService;
+    private projects: Object;
+    private currentProject: Object;
 
-    constructor(private authToken: string) {
-        this.rms = new RestMachineryService(authToken);
+    constructor(baseUrl: string, authToken: string) {
+        this.rms = new RestMachineryService(baseUrl, authToken);
     }
 
-    getProjects = () {
+    setAuthToken = (newAuthToken: string) => {
+        this.rms.setAuthToken(newAuthToken);
+    }
+
+    getProjects = () => {
         this.rms.sendRequest('GET', 'v2/projects', function(xhrStatus, xhrResponse) {
-            console.log('RESPONSE:', xhrStatus);
+            console.log(new Date(), 'RESPONSE:', xhrStatus);
             console.log(xhrResponse);
+            this.projects = JSON.parse(xhrResponse);
+            if(!this.rms.isNode()) {
+                localStorage.projects = xhrResponse;
+            }
         });
     }
 }
