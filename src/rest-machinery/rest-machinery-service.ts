@@ -28,7 +28,7 @@ export class RestMachineryService {
         xhr.setRequestHeader('Authorization', 'Bearer ' + this.authToken);
         xhr.responseType = 'json';
 
-        xhr.onload, xhr.onerror = function (e) {
+        xhr.onload, xhr.onerror = function (e: any) {
             var res = JSON.parse(xhr.responseText);
             callback(xhr.status, res);
         };
