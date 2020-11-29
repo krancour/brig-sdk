@@ -1,3 +1,5 @@
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+
 export class RestMachineryService {
     private baseUrl: string;
     private authToken: string;
