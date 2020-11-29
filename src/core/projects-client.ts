@@ -17,11 +17,11 @@ export class ProjectsClient {
     }
 
     getProjects = () => {
-        this.rms.sendRequest('GET', 'v2/projects', function(xhrStatus, xhrResponse) {
+        this.rms.sendRequest('GET', 'v2/projects', (xhrStatus: any, xhrResponse: string) => {
             console.log(new Date(), 'RESPONSE:', xhrStatus);
             console.log(xhrResponse);
             this.projects = JSON.parse(xhrResponse);
-            if(!this.rms.isNode()) {
+            if (!this.rms.isNode()) {
                 localStorage.projects = xhrResponse;
             }
         });

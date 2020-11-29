@@ -10,20 +10,21 @@ import { SecretsClient } from "./core/secrets-client";
 import { WorkersClient } from "./core/workers-client";
 
 // Allow all the clients to be imported individually
-// This allows the package users to optimize their code
+// This allows the package users to optimize their code based on use within a file
 
 // Export the ApiClient
-module.exports = ApiClient;
-
-// Export the Authentication-related Clients
-module.exports = AuthxApiClient;
-module.exports = SessionsClient;
-
-// Export the Core-functionality Clients
-module.exports = CoreApiClient;
-module.exports = EventsClient;
-module.exports = JobsClient;
-module.exports = LogsClient;
-module.exports = ProjectsClient;
-module.exports = SecretsClient;
-module.exports = WorkersClient;
+module.exports = {
+  // Export the ApiClient
+  ApiClient: ApiClient,
+  // Export the Authentication-related Clients
+  AuthxApiClient: AuthxApiClient,
+  SessionsClient: SessionsClient,
+  // Export the Core-functionality Clients
+  CoreApiClient: CoreApiClient,
+  EventsClient: EventsClient,
+  JobsClient: JobsClient,
+  LogsClient: LogsClient,
+  ProjectsClient: ProjectsClient,
+  SecretsClient: SecretsClient,
+  WorkersClient: WorkersClient
+};

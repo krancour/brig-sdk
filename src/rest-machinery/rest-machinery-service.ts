@@ -3,12 +3,12 @@ export class RestMachineryService {
     private authToken: string;
     private response: Object;
 
-    constructor(baseUrl: string, authToken: string) {
-        this.authToken = authToken;
+    constructor(baseUrl: string, authToken?: string) {
+        authToken ? this.authToken = authToken : this.authToken = null;
         this.baseUrl = baseUrl;
     }
 
-    sendRequest = (type: string, path: string, callback: Function, queryParams?: Object, body?: Object, headers?: Object) => {
+    sendRequest = (type: string, path: string, callback: Function, queryParams?: Map<string, any>, body?: Object, headers?: Map<string, any>) => {
 
         path ? path = this.baseUrl + path : path = this.baseUrl;
 
@@ -20,7 +20,7 @@ export class RestMachineryService {
         xhr.open(type, path);
 
         for (var header in headers) {
-            xhr.setRequestHeader(header, headers[header]);
+            xhr.setRequestHeader(header, headers.get(header));
         }
 
         xhr.setRequestHeader('Authorization', 'Bearer ' + this.authToken);
@@ -35,9 +35,9 @@ export class RestMachineryService {
         console.log(new Date(), type, 'REQUEST:', path);
     }
 
-    formatParams = (queryParams: Object) => {
+    formatParams = (queryParams: Map<string, any>) => {
         return "?" + Object.keys(queryParams).map(function (key) {
-            return key + '=' + encodeURIComponent(queryParams[key]);
+            return key + '=' + encodeURIComponent(queryParams.get(key));
         })
             .join('&');
     }

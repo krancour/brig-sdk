@@ -1,0 +1,1 @@
+{"version":3,"file":"projects-client.d.ts","sourceRoot":"","sources":["../../src/core/projects-client.ts"],"names":[],"mappings":"AAGA,qBAAa,cAAc;IACvB,OAAO,CAAC,OAAO,CAAS;IACxB,OAAO,CAAC,SAAS,CAAS;IAC1B,OAAO,CAAC,GAAG,CAAuB;IAClC,OAAO,CAAC,QAAQ,CAAS;IACzB,OAAO,CAAC,cAAc,CAAS;gBAEnB,OAAO,EAAE,MAAM,EAAE,SAAS,EAAE,MAAM;IAI9C,YAAY,iBAAkB,MAAM,UAEnC;IAED,WAAW,aASV;CACJ"}

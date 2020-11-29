@@ -1,0 +1,1 @@
+{"version":3,"file":"authx-api-client.d.ts","sourceRoot":"","sources":["../../src/authx/authx-api-client.ts"],"names":[],"mappings":"AAEA,qBAAa,cAAc;IAGX,OAAO,CAAC,OAAO;IAF3B,OAAO,CAAC,cAAc,CAAiB;gBAEnB,OAAO,EAAE,MAAM;IAInC,YAAY,eAEX;IAED,YAAY,iBAAkB,MAAM,UAEnC;CACJ"}
