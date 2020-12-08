@@ -29,7 +29,7 @@ export class RestMachineryService {
         xhr.responseType = 'json';
 
         xhr.onreadystatechange = function (e: any) {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
+            if (xhr.readyState == 4) {
                 var res = JSON.parse(xhr.responseText);
                 callback(xhr.status, res);
             }
