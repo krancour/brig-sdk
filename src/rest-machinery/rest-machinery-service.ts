@@ -1,6 +1,6 @@
 const request = require('request');
 
-const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+// const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 export class RestMachineryService {
     private baseUrl: string;
