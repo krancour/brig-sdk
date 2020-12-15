@@ -1,7 +1,5 @@
 const request = require('request');
 
-// const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-
 export class RestMachineryService {
     private baseUrl: string;
     private authToken: string;
@@ -23,8 +21,11 @@ export class RestMachineryService {
         let req = {
             url: path,
             method: type,
-            headers: headers ? headers : {}
+            headers: headers ? headers : {},
+            body: body ? body : {}
         };
+
+        console.log(new Date(), type, 'REQUEST:', path, body ? body : '');
 
         request(req, function (error: any, response: any, body: any) {
             if (error) {
@@ -33,33 +34,6 @@ export class RestMachineryService {
                 callback(response.statusCode, body);
            }
         });
-
-        // var xhr = new XMLHttpRequest();
-        // xhr.open(type, path);
-
-        // for (var header in headers) {
-        //     xhr.setRequestHeader(header, headers.get(header));
-        // }
-
-        // xhr.setRequestHeader('Authorization', 'Bearer ' + this.authToken);
-        // xhr.responseType = 'json';
-
-        // xhr.onreadystatechange = function (e: any) {
-        //     if (xhr.readyState == 4) {
-        //         var res = JSON.parse(xhr.responseText);
-        //         callback(xhr.status, res);
-        //     }
-        // };
-
-        // xhr.onerror = function (e: any) {
-        //     callback(xhr.status, {
-        //         'success': false,
-        //         'message': xhr.responseText
-        //     });
-        // }
-
-        // body ? xhr.send(body.toString().replace(/\s/g, '')) : xhr.send();
-        // console.log(new Date(), type, 'REQUEST:', path);
     }
 
     formatParams = (queryParams: Map<string, any>) => {
