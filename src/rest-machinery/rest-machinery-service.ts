@@ -1,3 +1,5 @@
+const request = require('request');
+
 const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 export class RestMachineryService {
@@ -18,32 +20,46 @@ export class RestMachineryService {
             path += this.formatParams(queryParams);
         }
 
-        var xhr = new XMLHttpRequest();
-        xhr.open(type, path);
-
-        for (var header in headers) {
-            xhr.setRequestHeader(header, headers.get(header));
-        }
-
-        xhr.setRequestHeader('Authorization', 'Bearer ' + this.authToken);
-        xhr.responseType = 'json';
-
-        xhr.onreadystatechange = function (e: any) {
-            if (xhr.readyState == 4) {
-                var res = JSON.parse(xhr.responseText);
-                callback(xhr.status, res);
-            }
+        let req = {
+            url: path,
+            method: type,
+            headers: headers ? headers : {}
         };
 
-        xhr.onerror = function (e: any) {
-            callback(xhr.status, {
-                'success': false,
-                'message': xhr.responseText
-            });
-        }
+        request(req, function (error: any, response: any, body: any) {
+            if (error) {
+                callback(response.statusCode, error);
+            } else {
+                callback(response.statusCode, body);
+           }
+        });
 
-        body ? xhr.send(body.toString().replace(/\s/g, '')) : xhr.send();
-        console.log(new Date(), type, 'REQUEST:', path);
+        // var xhr = new XMLHttpRequest();
+        // xhr.open(type, path);
+
+        // for (var header in headers) {
+        //     xhr.setRequestHeader(header, headers.get(header));
+        // }
+
+        // xhr.setRequestHeader('Authorization', 'Bearer ' + this.authToken);
+        // xhr.responseType = 'json';
+
+        // xhr.onreadystatechange = function (e: any) {
+        //     if (xhr.readyState == 4) {
+        //         var res = JSON.parse(xhr.responseText);
+        //         callback(xhr.status, res);
+        //     }
+        // };
+
+        // xhr.onerror = function (e: any) {
+        //     callback(xhr.status, {
+        //         'success': false,
+        //         'message': xhr.responseText
+        //     });
+        // }
+
+        // body ? xhr.send(body.toString().replace(/\s/g, '')) : xhr.send();
+        // console.log(new Date(), type, 'REQUEST:', path);
     }
 
     formatParams = (queryParams: Map<string, any>) => {
