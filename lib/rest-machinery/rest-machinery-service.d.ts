@@ -3,8 +3,7 @@ export declare class RestMachineryService {
     private authToken;
     private response;
     constructor(baseUrl: string, authToken?: string);
-    sendRequest: (type: string, path: string, callback: Function, queryParams?: Map<string, any>, body?: Object, headers?: Map<string, any>) => void;
-    formatParams: (queryParams: Map<string, any>) => string;
+    sendRequest: (type: string, path: string, callback: Function, queryParams?: Map<string, any>, body?: Object, headers?: Object) => void;
     isNode: () => string;
     setAuthToken: (authToken: string) => void;
 }

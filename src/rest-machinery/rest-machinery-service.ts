@@ -10,14 +10,21 @@ export class RestMachineryService {
         this.baseUrl = baseUrl;
     }
 
-    sendRequest = (type: string, path: string, callback: Function, queryParams?: Map<string, any>, body?: Object, headers?: Map<string, any>) => {
+    sendRequest = (type: string, path: string, callback: Function, queryParams?: Map<string, any>, body?: Object, headers?: Object) => {
 
-        console.log(new Date(), type, 'REQUEST:', path, body ? body : '');
+        headers ? headers = {
+            ...headers,
+            ...{ 'Authorization': 'Bearer ' + this.authToken }
+        } :
+            headers = {
+                'Authorization': 'Bearer ' + this.authToken
+            };
+
+        console.log(new Date(), type, 'REQUEST:', this.baseUrl + path, body ? body : '');
 
         axios({
             method: type,
-            baseUrl: this.baseUrl,
-            url: path,
+            url: this.baseUrl + path,
             params: queryParams,
             data: body,
             headers: headers,
@@ -44,14 +51,6 @@ export class RestMachineryService {
                     });
                 }
             });
-
-    }
-
-    formatParams = (queryParams: Map<string, any>) => {
-        return "?" + Object.keys(queryParams).map(function (key) {
-            return key + '=' + encodeURIComponent(queryParams.get(key));
-        })
-            .join('&');
     }
 
     isNode = () => {
