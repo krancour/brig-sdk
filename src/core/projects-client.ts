@@ -21,9 +21,13 @@ export class ProjectsClient {
             console.log(new Date(), 'RESPONSE:', xhrStatus);
             console.log(xhrResponse);
             this.projects = xhrResponse;
-            if (!this.rms.isNode()) {
-                localStorage.projects = xhrResponse;
-            }
+        });
+    }
+
+    createProject = () => {
+        this.rms.sendRequest('POST', '/v2/projects', (xhrStatus: any, xhrResponse: Object) => {
+            console.log(new Date(), 'RESPONSE:', xhrStatus);
+            console.log(xhrResponse);
         });
     }
 }

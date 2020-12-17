@@ -9,5 +9,6 @@ export declare class ApiClient {
     logout: () => void;
     getProjects: () => void;
     getProject: (projectId: string) => void;
+    createProject: () => void;
 }
 //# sourceMappingURL=api-client.d.ts.map

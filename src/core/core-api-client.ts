@@ -29,4 +29,8 @@ export class CoreApiClient {
     getProjects = () => {
         this.projectsClient.getProjects();
     }
+
+    createProject = () => {
+        this.projectsClient.createProject();
+    }
 }

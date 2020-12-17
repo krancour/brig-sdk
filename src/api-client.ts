@@ -36,5 +36,9 @@ export class ApiClient {
 
     }
 
+    createProject = () => {
+        this.coreApiClient.createProject();
+    }
+
 
 }
