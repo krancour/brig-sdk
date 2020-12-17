@@ -25,16 +25,10 @@ export class ProjectsClient {
         });
     }
 
-    createProject = (workerTemplate?: Object) => {
-        let newProject;
-        if (workerTemplate) {
-            newProject = new Project(workerTemplate);
-        } else {
-           newProject = new Project();
-        }
+    createProject = (id?: string, workerTemplate?: Object) => {
         this.rms.sendRequest('POST', '/v2/projects', (xhrStatus: any, xhrResponse: Object) => {
             console.log(new Date(), 'RESPONSE:', xhrStatus);
             console.log(xhrResponse);
-        }, undefined, newProject);
+        }, undefined, new Project(id, workerTemplate));
     }
 }

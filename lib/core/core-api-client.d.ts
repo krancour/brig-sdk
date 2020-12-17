@@ -10,6 +10,6 @@ export declare class CoreApiClient {
     constructor(baseUrl: string, authToken: string);
     setAuthToken: (newAuthToken: string) => void;
     getProjects: () => void;
-    createProject: () => void;
+    createProject: (id?: string, workerTemplate?: Object) => void;
 }
 //# sourceMappingURL=core-api-client.d.ts.map

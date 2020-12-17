@@ -3,7 +3,7 @@ export declare class Project extends Object {
     private kind;
     private metadata;
     private spec;
-    constructor(workerTemplate?: Object);
+    constructor(id?: string, workerTemplate?: Object);
     getApiVersion(): string;
     getKind(): string;
     getMetadata(): {

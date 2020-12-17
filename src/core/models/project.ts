@@ -10,12 +10,24 @@ export class Project extends Object {
     workerTemplate: Object
   };
 
-  constructor(workerTemplate?: Object) {
+  constructor(id?: string, workerTemplate?: Object) {
     super();
     this.apiVersion = require('../../../package.json').apiVersion;
     this.kind = 'Project';
-    this.metadata.id = uuid.v4();
-    workerTemplate ? this.spec.workerTemplate = workerTemplate : this.spec.workerTemplate = {};
+    id ?
+      this.metadata = {
+        id: id
+      } :
+      this.metadata = {
+        id: 'a' + uuid.v4()
+      };
+    workerTemplate ?
+      this.spec = {
+        workerTemplate: workerTemplate
+      } :
+      this.spec = {
+        workerTemplate: {}
+      };
   }
 
   getApiVersion() {

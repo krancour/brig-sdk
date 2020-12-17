@@ -36,7 +36,7 @@ export class ApiClient {
 
     }
 
-    createProject = () => {
+    createProject = (id?: string, workerTemplate?: Object) => {
         this.coreApiClient.createProject();
     }
 

@@ -30,7 +30,7 @@ export class CoreApiClient {
         this.projectsClient.getProjects();
     }
 
-    createProject = () => {
+    createProject = (id?: string, workerTemplate?: Object) => {
         this.projectsClient.createProject();
     }
 }
