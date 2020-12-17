@@ -1,0 +1,1 @@
+{"version":3,"file":"project.d.ts","sourceRoot":"","sources":["../../../src/core/models/project.ts"],"names":[],"mappings":"AAEA,qBAAa,OAAQ,SAAQ,MAAM;IACjC,OAAO,CAAC,UAAU,CAAS;IAC3B,OAAO,CAAC,IAAI,CAAS;IACrB,OAAO,CAAC,QAAQ,CAEd;IACF,OAAO,CAAC,IAAI,CAEV;gBAEU,cAAc,CAAC,EAAE,MAAM;IAQnC,aAAa;IAIb,OAAO;IAIP,WAAW;;;IAIX,KAAK;IAIL,OAAO;;;IAIP,iBAAiB;CAGlB"}
