@@ -35,33 +35,43 @@ export class RestMachineryService {
         })
             .then(function (response: any) {
                 if (callback) {
-                    callback(response.status, response.data)
-                        .catch(function (error: any) {
-                            callback(400, {
-                                'success': false,
-                                'message': error
-                            });
-                        });
+                    try {
+                        callback(response.status, response.data);
+                    } catch (error) {
+                        console.error('Invalid Callback Error:', error);
+                    }
                 }
             })
             .catch(function (error: any) {
                 if (error.response) {
                     if (callback) {
-                        callback(error.response.status, error.response.data);
+                        try {
+                            callback(error.response.status, error.response.data);
+                        } catch (error) {
+                            console.error('Invalid Callback Error:', error);
+                        }
                     }
                 } else if (error.request) {
                     if (callback) {
-                        callback(504, {
-                            'success': false,
-                            'message': 'Request timed out'
-                        });
+                        try {
+                            callback(504, {
+                                'success': false,
+                                'message': 'Request timed out'
+                            });
+                        } catch (error) {
+                            console.error('Invalid Callback Error:', error);
+                        }
                     }
                 } else {
                     if (callback) {
-                        callback(400, {
-                            'success': false,
-                            'message': 'Something went wrong while trying to perform request'
-                        });
+                        try {
+                            callback(400, {
+                                'success': false,
+                                'message': 'Something went wrong while trying to perform request'
+                            });
+                        } catch (error) {
+                            console.error('Invalid Callback Error:', error);
+                        }
                     }
                 }
             });
