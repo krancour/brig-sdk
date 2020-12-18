@@ -1,3 +1,4 @@
+import { Project } from "./models/project";
 export declare class ProjectsClient {
     private rms;
     constructor(baseUrl: string, authToken: string);
@@ -5,6 +6,7 @@ export declare class ProjectsClient {
     getProjects: (callback?: (status: Number, response: Object) => any) => void;
     getProject: (projectId: string, callback?: (status: Number, response: Object) => any) => void;
     createProject: (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => void;
+    updateProject: (id: string, project: Project, callback?: (status: Number, response: Object) => any) => void;
     deleteProject: (id: string, callback?: (status: Number, response: Object) => any) => void;
 }
 //# sourceMappingURL=projects-client.d.ts.map

@@ -1,5 +1,6 @@
 import { AuthxApiClient } from "./authx/authx-api-client";
 import { CoreApiClient } from "./core/core-api-client";
+import { Project } from "./core/models/project";
 
 export class ApiClient {
     private coreApiClient: CoreApiClient;
@@ -38,6 +39,10 @@ export class ApiClient {
 
     createProject = (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => {
         this.coreApiClient.createProject(id, workerTemplate, callback);
+    }
+
+    updateProject = (id: string, project: Project, callback?: (status: Number, response: Object) => any) => {
+        this.coreApiClient.updateProject(id, project, callback);
     }
 
     deleteProject = (id: string, callback?: (status: Number, response: Object) => any) => {

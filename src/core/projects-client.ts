@@ -24,6 +24,10 @@ export class ProjectsClient {
         this.rms.sendRequest('POST', '/v2/projects', callback, undefined, new Project(id, workerTemplate));
     }
 
+    updateProject = (id: string, project: Project, callback?: (status: Number, response: Object) => any) => {
+        this.rms.sendRequest('PUT', `/v2/projects/${id}`, callback, undefined, project);
+    }
+
     deleteProject = (id: string, callback?: (status: Number, response: Object) => any) => {
         this.rms.sendRequest('DELETE', `/v2/projects/${id}`, callback);
     }

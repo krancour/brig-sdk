@@ -1,6 +1,7 @@
 import { EventsClient } from "./events-client";
 import { JobsClient } from "./jobs-client";
 import { LogsClient } from "./logs-client";
+import { Project } from "./models/project";
 import { ProjectsClient } from "./projects-client";
 import { SecretsClient } from "./secrets-client";
 import { WorkersClient } from "./workers-client";
@@ -36,6 +37,10 @@ export class CoreApiClient {
 
     createProject = (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => {
         this.projectsClient.createProject(id, workerTemplate, callback);
+    }
+
+    updateProject = (id: string, project: Project, callback?: (status: Number, response: Object) => any) => {
+        this.projectsClient.updateProject(id, project, callback);
     }
 
     deleteProject = (id: string, callback?: (status: Number, response: Object) => any) => {
