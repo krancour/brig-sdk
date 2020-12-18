@@ -34,21 +34,35 @@ export class RestMachineryService {
             }
         })
             .then(function (response: any) {
-                callback(response.status, response.data);
+                if (callback) {
+                    callback(response.status, response.data)
+                        .catch(function (error: any) {
+                            callback(400, {
+                                'success': false,
+                                'message': error
+                            });
+                        });
+                }
             })
             .catch(function (error: any) {
                 if (error.response) {
-                    callback(error.response.status, error.response.data);
+                    if (callback) {
+                        callback(error.response.status, error.response.data);
+                    }
                 } else if (error.request) {
-                    callback(504, {
-                        'success': false,
-                        'message': 'Request timed out'
-                    });
+                    if (callback) {
+                        callback(504, {
+                            'success': false,
+                            'message': 'Request timed out'
+                        });
+                    }
                 } else {
-                    callback(400, {
-                        'success': false,
-                        'message': 'Something went wrong while trying to perform request'
-                    });
+                    if (callback) {
+                        callback(400, {
+                            'success': false,
+                            'message': 'Something went wrong while trying to perform request'
+                        });
+                    }
                 }
             });
     }
