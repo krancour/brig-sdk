@@ -53,4 +53,28 @@ export class Project extends Object {
   getWorkerTemplate() {
     return this.spec.workerTemplate;
   }
+
+  setApiVersion(apiVersion: string) {
+    this.apiVersion = apiVersion;
+  }
+
+  setKind(kind: string) {
+    this.kind = kind;
+  }
+
+  setMetadata(metadata: { id: string }) {
+    this.metadata = metadata;
+  }
+
+  setId(id: string) {
+    this.metadata.id = id;
+  }
+
+  setSpec(spec: { workerTemplate: Object }) {
+    this.spec = spec;
+  }
+
+  setWorkerTemplate(workerTemplate: Object) {
+    this.spec.workerTemplate = workerTemplate;
+  }
 }

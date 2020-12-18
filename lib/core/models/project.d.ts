@@ -14,5 +14,15 @@ export declare class Project extends Object {
         workerTemplate: Object;
     };
     getWorkerTemplate(): Object;
+    setApiVersion(apiVersion: string): void;
+    setKind(kind: string): void;
+    setMetadata(metadata: {
+        id: string;
+    }): void;
+    setId(id: string): void;
+    setSpec(spec: {
+        workerTemplate: Object;
+    }): void;
+    setWorkerTemplate(workerTemplate: Object): void;
 }
 //# sourceMappingURL=project.d.ts.map
