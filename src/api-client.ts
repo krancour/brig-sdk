@@ -28,19 +28,19 @@ export class ApiClient {
 
     }
 
-    getProjects = () => {
-        this.coreApiClient.getProjects();
+    getProjects = (callback?: (status: Number, response: Object) => any) => {
+        this.coreApiClient.getProjects(callback);
     }
 
-    getProject = (projectId: string) => {
-
+    getProject = (projectId: string, callback?: (status: Number, response: Object) => any) => {
+        this.coreApiClient.getProject(projectId, callback);
     }
 
-    createProject = (id?: string, workerTemplate?: Object) => {
-        this.coreApiClient.createProject();
+    createProject = (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => {
+        this.coreApiClient.createProject(id, workerTemplate, callback);
     }
 
-    deleteProject = (id: string) => {
-        this.coreApiClient.deleteProject(id);
+    deleteProject = (id: string, callback?: (status: Number, response: Object) => any) => {
+        this.coreApiClient.deleteProject(id, callback);
     }
 }

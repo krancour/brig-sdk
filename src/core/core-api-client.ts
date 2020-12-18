@@ -26,15 +26,19 @@ export class CoreApiClient {
         this.projectsClient.setAuthToken(newAuthToken);
     }
 
-    getProjects = () => {
-        this.projectsClient.getProjects();
+    getProjects = (callback?: (status: Number, response: Object) => any) => {
+        this.projectsClient.getProjects(callback);
     }
 
-    createProject = (id?: string, workerTemplate?: Object) => {
-        this.projectsClient.createProject();
+    getProject = (projectId: string, callback?: (status: Number, response: Object) => any) => {
+        this.projectsClient.getProject(projectId, callback);
     }
 
-    deleteProject = (id: string) => {
-        this.projectsClient.deleteProject(id);
+    createProject = (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => {
+        this.projectsClient.createProject(id, workerTemplate, callback);
+    }
+
+    deleteProject = (id: string, callback?: (status: Number, response: Object) => any) => {
+        this.projectsClient.deleteProject(id, callback);
     }
 }
