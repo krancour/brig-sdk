@@ -33,4 +33,8 @@ export class CoreApiClient {
     createProject = (id?: string, workerTemplate?: Object) => {
         this.projectsClient.createProject();
     }
+
+    deleteProject = (id: string) => {
+        this.projectsClient.deleteProject(id);
+    }
 }

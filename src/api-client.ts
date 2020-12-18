@@ -40,5 +40,7 @@ export class ApiClient {
         this.coreApiClient.createProject();
     }
 
-
+    deleteProject = (id: string) => {
+        this.coreApiClient.deleteProject(id);
+    }
 }

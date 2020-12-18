@@ -31,4 +31,11 @@ export class ProjectsClient {
             console.log(xhrResponse);
         }, undefined, new Project(id, workerTemplate));
     }
+
+    deleteProject = (id: string) => {
+        this.rms.sendRequest('DELETE', `/v2/projects/${id}`, (xhrStatus: any, xhrResponse: Object) => {
+            console.log(new Date(), 'RESPONSE:', xhrStatus);
+            console.log(xhrResponse);
+        });
+    }
 }

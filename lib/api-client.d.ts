@@ -10,5 +10,6 @@ export declare class ApiClient {
     getProjects: () => void;
     getProject: (projectId: string) => void;
     createProject: (id?: string, workerTemplate?: Object) => void;
+    deleteProject: (id: string) => void;
 }
 //# sourceMappingURL=api-client.d.ts.map

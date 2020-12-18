@@ -8,5 +8,6 @@ export declare class ProjectsClient {
     setAuthToken: (newAuthToken: string) => void;
     getProjects: () => void;
     createProject: (id?: string, workerTemplate?: Object) => void;
+    deleteProject: (id: string) => void;
 }
 //# sourceMappingURL=projects-client.d.ts.map
