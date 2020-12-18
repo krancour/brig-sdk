@@ -1,6 +1,6 @@
 {
   "name": "kashti-sdk",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "This npm package holds the code to support interactions between Kashti and Brigade",
   "main": "lib/index.js",
   "types": "lib",
