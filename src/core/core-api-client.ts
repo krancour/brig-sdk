@@ -46,4 +46,8 @@ export class CoreApiClient {
     deleteProject = (id: string, callback?: (status: Number, response: Object) => any) => {
         this.projectsClient.deleteProject(id, callback);
     }
+
+    getEvents = (callback?: (status: Number, response: Object) => any) => {
+        this.eventsClient.getEvents(callback);
+    }
 }

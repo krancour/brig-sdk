@@ -1,6 +1,7 @@
 import { AuthxApiClient } from "./authx/authx-api-client";
 import { CoreApiClient } from "./core/core-api-client";
 import { Project } from "./core/models/project";
+import { Event } from "./core/models/event";
 
 export class ApiClient {
     private coreApiClient: CoreApiClient;
@@ -47,5 +48,25 @@ export class ApiClient {
 
     deleteProject = (id: string, callback?: (status: Number, response: Object) => any) => {
         this.coreApiClient.deleteProject(id, callback);
+    }
+
+    getEvents = (callback?: (status: Number, response: Object) => any) => {
+        this.coreApiClient.getEvents(callback);
+    }
+
+    getEvent = (eventId: string, callback?: (status: Number, response: Object) => any) => {
+
+    }
+
+    createEvent = (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => {
+
+    }
+
+    updateEvent = (id: string, event: Event, callback?: (status: Number, response: Object) => any) => {
+
+    }
+
+    deleteEvent = (id: string, callback?: (status: Number, response: Object) => any) {
+
     }
 }
