@@ -25,6 +25,7 @@ export class CoreApiClient {
 
     setAuthToken = (newAuthToken: string) => {
         this.projectsClient.setAuthToken(newAuthToken);
+        this.eventsClient.setAuthToken(newAuthToken);
     }
 
     getProjects = (callback?: (status: Number, response: Object) => any) => {
