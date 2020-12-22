@@ -1,1 +1,1 @@
-{"version":3,"file":"events-client.d.ts","sourceRoot":"","sources":["../../src/core/events-client.ts"],"names":[],"mappings":"AAAA,qBAAa,YAAY;CAExB"}
+{"version":3,"file":"events-client.d.ts","sourceRoot":"","sources":["../../src/core/events-client.ts"],"names":[],"mappings":"AAGA,qBAAa,YAAY;IACvB,OAAO,CAAC,GAAG,CAAuB;gBAEtB,OAAO,EAAE,MAAM,EAAE,SAAS,EAAE,MAAM;IAI9C,YAAY,iBAAkB,MAAM,UAEnC;IAED,SAAS,uBAAwB,MAAM,YAAY,MAAM,KAAK,GAAG,UAEhE;CACF"}

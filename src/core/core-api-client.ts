@@ -16,7 +16,7 @@ export class CoreApiClient {
     
     constructor(private baseUrl: string, private authToken: string) {
         this.projectsClient = new ProjectsClient(baseUrl, authToken);
-        this.eventsClient = new EventsClient();
+        this.eventsClient = new EventsClient(baseUrl, authToken);
         this.jobsClient = new JobsClient();
         this.logsClient = new LogsClient();
         this.secretsClient = new SecretsClient();

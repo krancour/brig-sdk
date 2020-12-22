@@ -66,7 +66,7 @@ export class ApiClient {
 
     }
 
-    deleteEvent = (id: string, callback?: (status: Number, response: Object) => any) {
+    deleteEvent = (id: string, callback?: (status: Number, response: Object) => any) => {
 
     }
 }

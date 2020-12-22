@@ -1,4 +1,5 @@
 import { Project } from "./core/models/project";
+import { Event } from "./core/models/event";
 export declare class ApiClient {
     private baseUrl;
     private coreApiClient;
@@ -13,5 +14,10 @@ export declare class ApiClient {
     createProject: (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => void;
     updateProject: (id: string, project: Project, callback?: (status: Number, response: Object) => any) => void;
     deleteProject: (id: string, callback?: (status: Number, response: Object) => any) => void;
+    getEvents: (callback?: (status: Number, response: Object) => any) => void;
+    getEvent: (eventId: string, callback?: (status: Number, response: Object) => any) => void;
+    createEvent: (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => void;
+    updateEvent: (id: string, event: Event, callback?: (status: Number, response: Object) => any) => void;
+    deleteEvent: (id: string, callback?: (status: Number, response: Object) => any) => void;
 }
 //# sourceMappingURL=api-client.d.ts.map

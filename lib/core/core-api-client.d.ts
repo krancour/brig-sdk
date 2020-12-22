@@ -15,5 +15,6 @@ export declare class CoreApiClient {
     createProject: (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => void;
     updateProject: (id: string, project: Project, callback?: (status: Number, response: Object) => any) => void;
     deleteProject: (id: string, callback?: (status: Number, response: Object) => any) => void;
+    getEvents: (callback?: (status: Number, response: Object) => any) => void;
 }
 //# sourceMappingURL=core-api-client.d.ts.map
