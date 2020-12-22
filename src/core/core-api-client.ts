@@ -51,4 +51,8 @@ export class CoreApiClient {
     getEvents = (callback?: (status: Number, response: Object) => any) => {
         this.eventsClient.getEvents(callback);
     }
+
+    getEvent = (eventId: string, callback?: (status: Number, response: Object) => any) => {
+        this.eventsClient.getEvent(eventId, callback);
+    }
 }

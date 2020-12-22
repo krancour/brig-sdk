@@ -15,4 +15,8 @@ export class EventsClient {
   getEvents = (callback?: (status: Number, response: Object) => any) => {
     this.rms.sendRequest('GET', '/v2/events', callback);
   }
+
+  getEvent = (eventId: string, callback?: (status: Number, response: Object) => any) => {
+    this.rms.sendRequest('GET', `/v2/events/${eventId}`, callback);
+  }
 }

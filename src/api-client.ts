@@ -55,7 +55,7 @@ export class ApiClient {
     }
 
     getEvent = (eventId: string, callback?: (status: Number, response: Object) => any) => {
-
+        this.coreApiClient.getEvent(eventId, callback);
     }
 
     createEvent = (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => {
