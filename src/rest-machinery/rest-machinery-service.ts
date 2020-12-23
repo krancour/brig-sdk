@@ -20,7 +20,7 @@ export class RestMachineryService {
                 'Authorization': 'Bearer ' + this.authToken
             };
 
-        console.log(new Date(), type, 'REQUEST:', this.baseUrl + path, body ? body : '');
+        console.log(new Date(), type, 'REQUEST:', this.baseUrl + path, '\n', body ? body : '');
 
         axios({
             method: type,

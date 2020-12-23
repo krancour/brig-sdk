@@ -1,6 +1,7 @@
 import { RestMachineryService } from "../rest-machinery/rest-machinery-service";
 import { Event } from "./models/event";
 import { Worker } from "./models/worker";
+const apiVersion = require('../../package.json').apiVersion;
 
 export class EventsClient {
   private rms: RestMachineryService;
@@ -22,6 +23,12 @@ export class EventsClient {
   }
 
   createEvent = (projectId: string, source: string, type: string, worker: Worker, eventId?: string, callback?: (status: Number, response: Object) => any) => {
-    this.rms.sendRequest('POST', '/v2/events', callback, undefined, new Event(projectId, source, type, worker, eventId));
+    this.rms.sendRequest('POST', '/v2/events', callback, undefined, {
+      apiVersion: apiVersion,
+      kind: 'Event',
+      metadata: {},
+      source: source,
+      type: type
+    });
   }
 }
