@@ -2,6 +2,7 @@ import { AuthxApiClient } from "./authx/authx-api-client";
 import { CoreApiClient } from "./core/core-api-client";
 import { Project } from "./core/models/project";
 import { Event } from "./core/models/event";
+import { Worker } from "./core/models/worker";
 
 export class ApiClient {
     private coreApiClient: CoreApiClient;
@@ -58,8 +59,8 @@ export class ApiClient {
         this.coreApiClient.getEvent(eventId, callback);
     }
 
-    createEvent = (id?: string, workerTemplate?: Object, callback?: (status: Number, response: Object) => any) => {
-
+    createEvent = (projectId: string, source: string, type: string, worker: Worker, eventId?: string, callback?: (status: Number, response: Object) => any) => {
+        this.coreApiClient.createEvent(projectId, source, type, worker, eventId, callback);
     }
 
     updateEvent = (id: string, event: Event, callback?: (status: Number, response: Object) => any) => {

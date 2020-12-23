@@ -1,4 +1,5 @@
 import { Project } from "./models/project";
+import { Worker } from "./models/worker";
 export declare class CoreApiClient {
     private baseUrl;
     private authToken;
@@ -17,5 +18,6 @@ export declare class CoreApiClient {
     deleteProject: (id: string, callback?: (status: Number, response: Object) => any) => void;
     getEvents: (callback?: (status: Number, response: Object) => any) => void;
     getEvent: (eventId: string, callback?: (status: Number, response: Object) => any) => void;
+    createEvent: (projectId: string, source: string, type: string, worker: Worker, eventId?: string, callback?: (status: Number, response: Object) => any) => void;
 }
 //# sourceMappingURL=core-api-client.d.ts.map

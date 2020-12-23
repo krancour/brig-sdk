@@ -5,6 +5,7 @@ import { Project } from "./models/project";
 import { ProjectsClient } from "./projects-client";
 import { SecretsClient } from "./secrets-client";
 import { WorkersClient } from "./workers-client";
+import { Worker } from "./models/worker";
 
 export class CoreApiClient {
     private projectsClient: ProjectsClient;
@@ -54,5 +55,9 @@ export class CoreApiClient {
 
     getEvent = (eventId: string, callback?: (status: Number, response: Object) => any) => {
         this.eventsClient.getEvent(eventId, callback);
+    }
+
+    createEvent = (projectId: string, source: string, type: string, worker: Worker, eventId?: string, callback?: (status: Number, response: Object) => any) => {
+        this.eventsClient.createEvent(projectId, source, type, worker, eventId, callback);
     }
 }
