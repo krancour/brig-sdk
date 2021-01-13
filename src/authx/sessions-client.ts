@@ -49,4 +49,21 @@ export class SessionsClient {
             localStorage.jwt = newAuthToken;
         }
     }
+
+    // Sessions requests - these are the MOST IMPORTANT to get working for this project
+    createRootSession = (password: string, callback?: (status: Number, response: Object) => any) => {
+        // A few questions:
+        // 1. How will we construct the auth headers for this and related functions?
+        // 2. Do we need context like the Go SDK passes into the request?
+        // 3. Will we handle the response data differently for different types of requests? (e.g., authentication)
+        this.rms.sendRequest('POST', 'v2/sessions', callback, new Map().set('root', 'true'), undefined, new Map().set('root', password));
+    }
+
+    createUserSession = (callback?: (status: Number, response: Object) => any) => {
+        this.rms.sendRequest('POST', 'v2/sessions', callback);  
+    }
+
+    deleteSession = (callback?: (status: Number, response: Object) => any) => {
+        this.rms.sendRequest('DELETE', 'v2/sessions', callback);  
+    }
 }
