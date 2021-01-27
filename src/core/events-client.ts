@@ -2,6 +2,7 @@ import { RestMachineryService } from "../rest-machinery/rest-machinery-service";
 import { Event } from "./models/event";
 import { Worker } from "./models/worker";
 const apiVersion = require('../../package.json').apiVersion;
+// this is a test
 
 export class EventsClient {
   private rms: RestMachineryService;
