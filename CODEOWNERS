@@ -1,0 +1,4 @@
+# The global owners listed here will be default owners for everything
+# in the repo. @krancour, @thomastaylor312, and @sjsundrud will be requested for review
+# when someone opens a pull request.
+*       @krancour @thomastaylor312 @sjsundrud
